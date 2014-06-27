@@ -1,43 +1,46 @@
 <h1>Listing Projects</h1>
 
-<table class="listing_table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Description</th>
-      <th>Billing type</th>
-      <th>Start date</th>
-      <th>Deadline date</th>
-      <th>End date</th>
-      <th>Github url</th>
-      <th>Status</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+<% unless @users.empty? %>
+  <table border="1px black" text-align="center" cellspacing="5px" cellpadding="5px">
+    <thead>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.code %></td>
-        <td><%= user.description %></td>
-        <td><%= user.billing_type %></td>
-        <td><%= user.start_date %></td>
-        <td><%= user.deadline_date %></td>
-        <td><%= user.end_date %></td>
-        <td><%= user.github_url %></td>
-        <td><%= user.status %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Description</th>
+        <th>Billing type</th>
+        <th>Start date</th>
+        <th>Deadline date</th>
+        <th>End date</th>
+        <th>Github url</th>
+        <th>Status</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.code %></td>
+          <td><%= user.description %></td>
+          <td><%= user.billing_type %></td>
+          <td><%= user.start_date.strftime("%Y-%M-%d %H:%M:%S") %></td>
+          <td><%= user.deadline_date %></td>
+          <td><%= user.end_date %></td>
+          <td><%= user.github_url %></td>
+          <td><%= user.status %></td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  No projects found.
+<% end %>
 <br>
 
 <%= link_to 'New Project', new_user_path %>

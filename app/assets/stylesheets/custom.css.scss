@@ -4,10 +4,10 @@
 $grayMediumLight: #eaeaea;
 
 /* universal */
-.listing_table
-{
-	border:1px black;
-	text-align:center;
+table {
+  border:1px black;
+  text-align: center;
+
 }
 html {
   overflow-y: scroll;
@@ -46,7 +46,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -55,7 +55,7 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 2em;
   line-height: 1.7em;
 }
 
