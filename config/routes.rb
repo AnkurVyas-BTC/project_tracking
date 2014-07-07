@@ -1,5 +1,9 @@
 ProjectTracking::Application.routes.draw do
-  resources :users
+  resources :clients
+
+  resources :projects
+
+  
 
   root  'static_pages#home'
   match '/contact', to: 'static_pages#contact', via: 'get'

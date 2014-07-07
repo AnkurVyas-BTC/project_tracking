@@ -29,13 +29,15 @@ def sumofint(target,maxValue,number)
             sumofint(target, maxValue-1, number)
         end
         if maxValue <= target
+
             sumofint(target-maxValue, maxValue, maxValue.to_s + "+" + number)
+
         end
   end
 end
 print "Enter the number n: "
 n = gets.chomp()
 n2 = n
-a = sumofint(n.to_i,n2.to_i,"")
+a = sumofint(n.to_i,n2.to_i-1,"")
 puts a
 

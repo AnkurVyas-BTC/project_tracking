@@ -1,24 +1,8 @@
 
-toys = { car: 400, doll:100, puppy:200, cat:500 };
-
-puts "\nThe toys are: "
-toys.each do |key,value| 
-	puts "#{key} = #{value}"
-end
-
-print "\nEnter the money you have: "
-k = gets.chomp.to_i
-
-sum = 0
-aa = []
-name = []
-
-toys.each_key { |key| name << key  }
-toys.each_value {|value| aa << value}
-
-len = aa.length
-i=0
-j=0
+def sort(aa,name)
+	len = aa.length
+	i=0
+	j=0
 while i < len-1 
 	while j < len-1 
 		if (aa[j] > aa[j+1])
@@ -35,6 +19,9 @@ while i < len-1
 	end
 	i+=1
 end
+end
+
+def printitems(aa,name,sum,k)
 
 i=0
 
@@ -52,5 +39,28 @@ while sum <= k
 		
 	end
 end
+end
+
+
+toys = { car: 400, doll:100, puppy:200, cat:500 };
+
+puts "\nThe toys are: "
+toys.each do |key,value| 
+	puts "#{key} = #{value}"
+end
+
+print "\nEnter the money you have: "
+k = gets.chomp.to_i
+
+sum = 0
+aa = []
+name = []
+
+toys.each_key { |key| name << key  }
+toys.each_value {|value| aa << value}
+
+sort(aa,name)
+printitems(aa,name,sum,k)
+
 
 puts "\n \n"
