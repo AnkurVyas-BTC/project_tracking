@@ -1,7 +1,7 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    Project.create!(name: "Ankur Vyas",
+    Project.create!(name: "Project 1",
                     code: "1",
                     description: "Business Project",
                     billing_type: "fixed",
@@ -39,5 +39,7 @@ namespace :db do
                       )
 
     end
+
+    
   end
 end

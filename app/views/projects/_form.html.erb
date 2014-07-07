@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -50,11 +52,19 @@
     <%= f.select :status, [ 'poc', 'kick off','completed']%>
   </div>
   
-  <div class="field">
-    <%= f.label :client %><br>
-    <%= f.text_field :client %>
 
+<% if params[:action] == 'edit' %>
+    <div class="field">
+    <%= f.label :client_id %><br>
+    <%= f.select("client_id", Client.all.collect {|p| [ p.name, p.id ] },{},:disabled => true)%>
+    </div>
+<% else %>
+  <div class="field">
+    <%= f.label :client_id %><br>
+    <%= f.select("client_id", Client.all.collect {|p| [ p.name, p.id ] }) %>
   </div>
+<% end %>
+   
   <div class="actions">
     <%= f.submit %>
   </div>

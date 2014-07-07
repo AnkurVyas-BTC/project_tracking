@@ -10,13 +10,14 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @clients = Client.all? 
+     
     
   end
 
   # GET /projects/new
   def new
     @project = Project.new
+
   end
 
   # GET /projects/1/edit
@@ -30,6 +31,8 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        cc = Client.find_by_id(@project.client_id)
+        cc.update_attributes(project_id: params[:id])
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render action: 'show', status: :created, location: @project }
       else
@@ -71,6 +74,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :code, :description, :billing_type, :start_date, :deadline_date, :end_date, :github_url, :status)
+      params.require(:project).permit(:name, :code, :description, :billing_type, :start_date, :deadline_date, :end_date, :github_url, :status,:client_id)
     end
 end

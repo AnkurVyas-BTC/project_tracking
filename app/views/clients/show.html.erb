@@ -10,7 +10,14 @@
   <%= @client.country %>
 </p>
 
-
+<div class="span8">
+    <% if @client.projects.any? %>
+      <h3>Projects (<%= @client.projects.count %>)</h3>
+      <% else %>
+      No projects 
+      
+    <% end %>
+  </div>
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

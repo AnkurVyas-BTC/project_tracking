@@ -32,8 +32,7 @@
         <td><%= project.end_date %></td>
         <td><%= project.github_url %></td>
         <td><%= project.status %></td>
-
-        <td><%= project.client %></td>
+        <td><%= Client.find_by_id(project.client_id).name %></td>
         <td><%= link_to 'Show', project ,class: "btn btn-primary btn-sm"%></td>
         <td><%= link_to 'Edit', edit_project_path(project) ,class: "btn btn-primary btn-sm"%></td>
         <td><%= link_to 'Destroy', project, method: :delete,class: "btn btn-primary btn-sm btn-danger",data: { confirm: 'Are you sure?' } %></td>
