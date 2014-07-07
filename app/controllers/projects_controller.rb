@@ -1,12 +1,17 @@
 class ProjectsController < ApplicationController
+  require 'will_paginate/array';
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.paginate(page: params[:page])
+    #@projects_search =  Project.search(params[:name])
+    @projects = Project.search(params[:search],params[:status],params[:client_id]).paginate(:page => params[:page])
+
   end
 
+       
+  
   # GET /projects/1
   # GET /projects/1.json
   def show

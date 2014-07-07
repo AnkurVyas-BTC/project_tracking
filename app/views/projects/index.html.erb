@@ -1,5 +1,27 @@
-<h1>Listing projects</h1>
-<%= will_paginate %>
+<h1>Projects</h1>
+
+
+<%= form_tag projects_path, :method => 'get' do%>
+  <table text-align="center" cellspacing="10px" cellpadding="10px">
+  <tr>
+    <td>Project Name</td>
+    <td>Status</td>
+    <td>Client Name</td>
+    <td></td>
+  
+  </tr>
+  <tr>
+    <td><%= text_field_tag :search, params[:search] %></td>
+    <td><%= select_tag(:status,options_for_select(['poc','kick off','completed']))%></td>
+    <td><%= select_tag(:client_id,
+    options_for_select(Client.all.collect {|p| [ p.name, p.id ]})) %></td>
+    <td><%= submit_tag "Search", :name => nil %></td>
+  </tr>
+  </table>
+
+<% end%>
+  
+
 <table text-align="center" border="1px" cellspacing="10px" cellpadding="10px">
   <thead>
     <tr>
