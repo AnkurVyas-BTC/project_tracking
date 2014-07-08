@@ -10,10 +10,8 @@ class Project < ActiveRecord::Base
 
 
 def self.search(search,status,client)
-  if search
+  if (search || status || client)
     find(:all, :conditions => ['name LIKE ? OR status LIKE ? OR client_id LIKE ?',search,status,client])
-    
-
   else
     find(:all)
   end

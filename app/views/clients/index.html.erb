@@ -16,12 +16,12 @@
       <tr>
         <td><%= client.name %></td>
         <td><%= client.country %></td>
-        <td><%= link_to 'Show', client %></td>
-        <td><%= link_to 'Edit', edit_client_path(client) %></td>
+        <td><%= link_to 'Show', client ,class: "btn btn-primary btn-success"%></td>
+        <td><%= link_to 'Edit', edit_client_path(client),class: "btn btn-primary btn-sm btn-warning" %></td>
         <td>
          <% if client.projects.any? %>
           <% else %> 
-        <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destroy', client, class: "btn btn-primary btn-sm btn-danger",method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
         </td>
       </tr>

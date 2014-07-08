@@ -15,7 +15,7 @@
     <td><%= select_tag(:status,options_for_select(['poc','kick off','completed']))%></td>
     <td><%= select_tag(:client_id,
     options_for_select(Client.all.collect {|p| [ p.name, p.id ]})) %></td>
-    <td><%= submit_tag "Search", :name => nil %></td>
+    <td><%= submit_tag "Search", :name => nil , class: "btn btn-primary btn-info"%></td>
   </tr>
   </table>
 
@@ -55,8 +55,8 @@
         <td><%= project.github_url %></td>
         <td><%= project.status %></td>
         <td><%= Client.find_by_id(project.client_id).name %></td>
-        <td><%= link_to 'Show', project ,class: "btn btn-primary btn-sm"%></td>
-        <td><%= link_to 'Edit', edit_project_path(project) ,class: "btn btn-primary btn-sm"%></td>
+        <td><%= link_to 'Show', project ,class: "btn btn-primary btn-success"%></td>
+        <td><%= link_to 'Edit', edit_project_path(project) ,class: "btn btn-primary btn-sm btn-warning"%></td>
         <td><%= link_to 'Destroy', project, method: :delete,class: "btn btn-primary btn-sm btn-danger",data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
