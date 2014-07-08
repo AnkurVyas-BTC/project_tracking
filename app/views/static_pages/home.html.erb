@@ -1,12 +1,17 @@
 <div class="center hero-unit">
   <h1>Welcome to the Project Tracking</h1>
+<table align="center"text-align="center" cellpadding="10" cellpadding="10">
+<tr>
+<td><%= link_to "List Projects" , 'projects/', class: "btn btn-large btn-info" %></td>
+<td> <%= link_to "New Project" , '/projects/new', class: "btn btn-large btn-info" %> </td>
 
-<%= link_to "List Projects" , 'projects/', class: "btn btn-large btn-info" %>
-<%= link_to "New Project" , '/projects/new', class: "btn btn-large btn-info" %> 
-<br /><br />
-<%= link_to "List Client" , '/clients', class: "btn btn-large btn-info" %> 
-<%= link_to "New Client" , '/clients/new', class: "btn btn-large btn-info" %>
+</tr>
+<tr>
 
+<td><%= link_to "List Client" , '/clients', class: "btn btn-large btn-info" %> </td>
+<td><%= link_to "New Client" , '/clients/new', class: "btn btn-large btn-info" %></td>
+</tr>
+</table>
 
 
 
