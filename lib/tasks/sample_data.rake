@@ -22,8 +22,8 @@ namespace :db do
       deadline_date = "2014-07-30"
       end_date = "2014-06-30"
       github_url = "git#{n+1}@github.com"
-      status = "poc"
-      client_id = 1
+      status = [ 'poc', 'kick off','completed'].sample
+      client_id = [1,2,3,4].sample
       
       
       Project.create!(name: name,
@@ -38,6 +38,15 @@ namespace :db do
                       client_id: client_id
                       )
 
+
+    end
+
+
+    5.times do |n|
+      name = "Client #{n+1}"
+      country = ['India', 'USA','Japan','China','England','Africa'].sample
+      Client.create!(name: name,
+                     country: country)
     end
 
     
