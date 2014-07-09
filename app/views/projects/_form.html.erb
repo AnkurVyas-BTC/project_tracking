@@ -21,15 +21,24 @@
     <%= f.label :code %><br>
     <%= f.text_field :code %>
   </div>
+
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+
   <div class="field">
-    <%= f.label :billing_type %><br>
-    <%= f.select :billing_type, [ 'tnm', 'fixed']%>
-   
+  <%= f.label "Billing Type" %> 
+  <%= f.select :billing_type,["tnm","fixed"],{},{:class => 'select_option'}  %>
   </div>
+
+  
+  <div id="fixed" style="display:none;"> 
+    <%= f.label "Enter total Budget Amount" %>    
+   <%= f.text_field :budget_amount%>  
+  </div>
+
+  
   <div class="field">
     <%= f.label :start_date %><br>
     <%= f.date_select :start_date %>
@@ -70,3 +79,19 @@
   </div>
 
 <% end %>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $( ".select_option" ).change(function() {
+            if($(this).val() == 'fixed') {
+               $('#fixed').show();
+            } else {
+              $('#fixed').hide();
+              $()
+            
+            }
+        });
+        $( ".select_option" ).trigger('change');
+        });
+</script>

@@ -10,14 +10,16 @@ namespace :db do
                     end_date: "2014-05-30",
                     github_url: "gitankur@github.com",
                     status: "kick off",
-                    client_id: 1
+                    client_id: 1,
+                    budget_amount: 15000
+
                     )
                  
     99.times do |n|
       name  = Faker::Name.name
       code = "#{n+1}"
       description = "Business Project #{n+1}"
-      billing_type = "fixed"
+      billing_type = "tnm"
       start_date = "2014-04-30"
       deadline_date = "2014-07-30"
       end_date = "2014-06-30"

@@ -13,6 +13,11 @@
 <div class="span8">
     <% if @client.projects.any? %>
       <h3>Projects (<%= @client.projects.count %>)</h3>
+      
+      <% @client.projects.each do |f| %>
+        <%= f.name %><br/>
+      <%end%>
+
       <% else %>
       No projects 
       
